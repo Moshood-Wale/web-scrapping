@@ -19,7 +19,11 @@ def program_output():
         
         user_input = input('\nWould you like to scrape a website (y/n): ')
 
-        if user_input =='y':
+        if user_input =='n':
+            print('\nThank you for the analysis. We hope to see you next time')
+            exit()
+
+        elif user_input =='y':
         
             website = input('\nEnter the website to analyze: \n')
             
@@ -32,17 +36,17 @@ def program_output():
 
             else: 
                 word_counts=WebAnalysis(website)
-                print(word_counts.remove_common_words())
-                request=Chart(website)
+                word_counts.remove_common_words()
+                request = Chart(website)
+                word_counts.top_words()
                 print(request.piechart())
                 print(request.barchart())
         
-        elif user_input =='n':
-            print('\nThank you for the analysis. We hope to see you next time')
-            exit()
-
+        
         else:
             print('Incorrect choice')
+        
+        
 
 program_output()            
 
